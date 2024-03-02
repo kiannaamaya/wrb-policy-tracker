@@ -1,7 +1,12 @@
-# Welcome to streamlit
+# Women's Rights Policy Tracker Streamlit App
 
-This is the app you get when you run `streamlit hello`, extracted as its own app.
+## Description
 
-Edit [Hello.py](./Hello.py) to customize this app to your heart's desire. ❤️
+This application serves to allow women to keep track of policies affecting their rights and livelihoods.
 
-Check it out on [Streamlit Community Cloud](https://st-hello-app.streamlit.app/)
+## Current Functionality
+
+As of the current state, the application has the following features:
+- Load policy data from a CSV file.
+- Display of policy data matching the selected filters (years and state).
+
