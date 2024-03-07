@@ -20,7 +20,7 @@ def show():
     
     filtered_data = data[data['location'] == selected_location]
     
-    fig = px.line(filtered_data, x='year', y='rate_for_women', title=f'Rate for Women Over Time in {selected_location}',
+    fig = px.line(filtered_data, x='year', y='rate_for_women', title=f'Abortion Rate Over Time in {selected_location}',
                   markers=True, line_shape='linear')
     
     fig.update_layout({
@@ -33,7 +33,7 @@ def show():
             'linecolor': 'black',  # color of the x-axis line
         },
         'yaxis': {
-            'title': 'Rate for Women',
+            'title': 'Abortion Rate',
             'showline': True,  # show the y-axis line
             'linecolor': 'black',  # color of the y-axis line
         }
