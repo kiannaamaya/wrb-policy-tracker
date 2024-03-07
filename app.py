@@ -8,14 +8,14 @@ def main():
 
     if st.sidebar.button("Home"):
         st.session_state.page = "Home"
-    if st.sidebar.button("Data Explanation"):
-        st.session_state.page = "Data Explanation"
+    if st.sidebar.button("Data Explaination"):
+        st.session_state.page = "Data Explaination"
     if st.sidebar.button("Explore Policy Impact"):
         st.session_state.page = "Explore Policy Impact"
 
     if st.session_state.page == "Home":
         home.show()
-    elif st.session_state.page == "Data Explanation":
+    elif st.session_state.page == "Data Explaination":
         data_explanation.show()
     elif st.session_state.page == "Explore Policy Impact":
         data_filtering.show()
