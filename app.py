@@ -1,31 +1,26 @@
 import streamlit as st
-import pandas as pd
+from app_pages import home, data_explanation, data_filtering
 
-st.set_page_config(page_title="Policy Search", page_icon="🔍")
+def main():
+    st.sidebar.title("Navigation")
+    if 'page' not in st.session_state:
+        st.session_state.page = "Home"  # Default page
 
-@st.cache_data
-def load_data():
-    data = pd.read_csv('fullpolicylist.csv')  
-    return data
+    if st.sidebar.button("Home"):
+        st.session_state.page = "Home"
+    if st.sidebar.button("Data Explanation"):
+        st.session_state.page = "Data Explanation"
+    if st.sidebar.button("Explore Policy Impact"):
+        st.session_state.page = "Explore Policy Impact"
 
-def run():
-    st.write("# Policy Search App")
+    if st.session_state.page == "Home":
+        home.show()
+    elif st.session_state.page == "Data Explanation":
+        data_explanation.show()
+    elif st.session_state.page == "Explore Policy Impact":
+        data_filtering.show()
 
-    data = load_data()
 
-    st.sidebar.header("Filter options")
-
-    state = st.sidebar.selectbox('Select State', options=data['State'].unique())
-
-    year = st.sidebar.slider('Select Year', min_value=int(data['Year'].min()), max_value=int(data['Year'].max()), value=int(data['Year'].min()), step=1, format='%d')
-
-    filtered_data = data[(data['State'] == state) & (data['Year'] == year)]
-
-    if not filtered_data.empty:
-      st.dataframe(filtered_data.style.format({"Year": "{:}"}))
-
-    else:
-        st.write("No policies found for the selected criteria.")
 
 if __name__ == "__main__":
-    run()
+    main()
